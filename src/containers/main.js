@@ -6,8 +6,7 @@ class Main extends Component {
   state = {};
   render() {
     return (
-      <div>
-        <h1>MAIN</h1>
+      <div className="ph4 pb4">
         <Filter />
         <Table />
       </div>
