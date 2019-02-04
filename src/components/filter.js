@@ -1,6 +1,6 @@
 import React from "react";
 
-const Filter = () => {
+const Filter = props => {
   return (
     <div>
       <h1>Catalogo libri</h1>
@@ -18,6 +18,7 @@ const Filter = () => {
         name="searchKey"
         className="input-reset ba b--black-20 pa2 w-60 fr"
         type="text"
+        onChange={props.changeFilterInput}
       />
     </div>
   );
