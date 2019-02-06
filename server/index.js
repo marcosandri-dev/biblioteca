@@ -1,6 +1,24 @@
 var express = require("express"),
   app = express();
 
+const knex = require("knex");
+
+const db = knex({
+  client: "pg",
+  connection: {
+    host: "127.0.0.1",
+    user: "postgres",
+    password: "",
+    database: ""
+  }
+});
+
+db.select("*")
+  .from("books")
+  .then(data => {
+    console.log(data);
+  });
+
 //Routes
 var booksRoutes = require("./routes/books");
 
