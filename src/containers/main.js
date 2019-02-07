@@ -17,7 +17,7 @@ class Main extends Component {
   }
 
   getBooks = () => {
-    fetch("https://jsonplaceholder.typicode.com/todos")
+    fetch("http://localhost:8000/api/books")
       .then(response => response.json())
       .then(json => this.setState({ books: json, filteredBooks: json }));
   };

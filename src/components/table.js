@@ -6,19 +6,23 @@ const Table = props => {
       <table>
         <thead>
           <tr>
-            <th>ID</th>
-            <th>userID</th>
-            <th>title</th>
-            <th>completed</th>
+            <th>Codice</th>
+            <th>Titolo</th>
+            <th>Autore</th>
+            <th>Anno</th>
+            <th>Casa Editrice</th>
+            <th>Genere</th>
           </tr>
         </thead>
         <tbody>
           {props.books.map(book => (
             <tr key={book.id}>
-              <td>{book.id}</td>
-              <td>{book.userId}</td>
+              <td>{book.codeid}</td>
               <td>{book.title}</td>
-              <td>{book.completed}</td>
+              <td>{book.author_surname + " " + book.author_name}</td>
+              <td>{book.year}</td>
+              <td>{book.editor}</td>
+              <td>{book.genre}</td>
             </tr>
           ))}
         </tbody>
