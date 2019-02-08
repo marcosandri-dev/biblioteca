@@ -8,7 +8,8 @@ class Main extends Component {
     this.state = {
       books: [],
       filteredBooks: [],
-      filterInput: ""
+      filterInput: "",
+      selectedFilter: "title"
     };
   }
 
@@ -22,10 +23,20 @@ class Main extends Component {
       .then(json => this.setState({ books: json, filteredBooks: json }));
   };
 
-  filterBooks = title => {
+  onSelectChange = e => {
+    this.setState({ selectedFilter: e.target.value });
+  };
+
+  filterBooks = searchString => {
     const filteredBooks = this.state.books.filter(book => {
-      if (book.title.includes(title)) {
-        return book;
+      if (book[this.state.selectedFilter]) {
+        if (
+          book[this.state.selectedFilter]
+            .toUpperCase()
+            .includes(searchString.toUpperCase())
+        ) {
+          return book;
+        }
       }
     });
 
@@ -39,7 +50,10 @@ class Main extends Component {
   render() {
     return (
       <div className="ph4 pb4">
-        <Filter changeFilterInput={this.onChange} />
+        <Filter
+          changeFilterInput={this.onChange}
+          changeSelectInput={this.onSelectChange}
+        />
         <Table books={this.state.filteredBooks} />
       </div>
     );

@@ -1,14 +1,15 @@
 var express = require("express");
 var router = express.Router();
+require("dotenv").config();
 
 const knex = require("knex");
 const db = knex({
   client: "pg",
   connection: {
-    host: "127.0.0.1",
-    user: "postgres",
-    password: "",
-    database: ""
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASS,
+    database: process.env.DB
   }
 });
 

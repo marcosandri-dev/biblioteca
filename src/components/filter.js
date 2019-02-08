@@ -8,11 +8,15 @@ const Filter = props => {
       <label htmlFor="type" className="f5 b db mb2 mt3">
         Ricerca per:
       </label>
-      <select name="type" className="input-reset ba b--black-20 pa2 w-30">
-        <option>Titolo</option>
-        <option>Autore</option>
-        <option>Genere</option>
-        <option>Anno</option>
+      <select
+        name="type"
+        onChange={props.changeSelectInput}
+        className="input-reset ba b--black-20 pa2 w-30"
+      >
+        <option value="title">Titolo</option>
+        <option value="author_surname">Autore</option>
+        <option value="genre">Genere</option>
+        <option value="editor">Casa Editrice</option>
       </select>
       <input
         name="searchKey"

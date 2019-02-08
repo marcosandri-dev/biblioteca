@@ -9,9 +9,9 @@ const Table = props => {
             <th>Codice</th>
             <th>Titolo</th>
             <th>Autore</th>
-            <th>Anno</th>
             <th>Casa Editrice</th>
             <th>Genere</th>
+            <th>Anno</th>
           </tr>
         </thead>
         <tbody>
@@ -19,10 +19,12 @@ const Table = props => {
             <tr key={book.id}>
               <td>{book.codeid}</td>
               <td>{book.title}</td>
-              <td>{book.author_surname + " " + book.author_name}</td>
-              <td>{book.year}</td>
+              <td>
+                {book.author_surname} {book.author_name ? book.author_name : ""}
+              </td>
               <td>{book.editor}</td>
               <td>{book.genre}</td>
+              <td>{book.year}</td>
             </tr>
           ))}
         </tbody>
