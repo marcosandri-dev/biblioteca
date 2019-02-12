@@ -18,7 +18,11 @@ const Header = props => {
         >
           Chi siamo
         </span>
-        <span className="link dim white dib pa3 bl" title="Store">
+        <span
+          className="link dim white dib pa3 bl"
+          onClick={() => props.changeRoute("blog")}
+          title="Store"
+        >
           Blog
         </span>
         <span

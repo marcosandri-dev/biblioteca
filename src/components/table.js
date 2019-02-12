@@ -15,7 +15,7 @@ const Table = props => {
           </tr>
         </thead>
         <tbody>
-          {props.books.map(book => (
+          {props.books.slice(0, 3).map(book => (
             <tr key={book.id}>
               <td>{book.codeid}</td>
               <td>{book.title}</td>

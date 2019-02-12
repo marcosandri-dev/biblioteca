@@ -14,7 +14,7 @@ const Filter = props => {
         className="input-reset ba b--black-20 pa2 w-30"
       >
         <option value="title">Titolo</option>
-        <option value="author_surname">Autore</option>
+        <option value="author_surname">Autore (cognome)</option>
         <option value="genre">Genere</option>
         <option value="editor">Casa Editrice</option>
       </select>

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Filter from "../components/filter";
 import Table from "../components/table";
+import Pagination from "../components/pagination";
 
 class Main extends Component {
   constructor() {
@@ -55,6 +56,7 @@ class Main extends Component {
           changeSelectInput={this.onSelectChange}
         />
         <Table books={this.state.filteredBooks} />
+        <Pagination />
       </div>
     );
   }

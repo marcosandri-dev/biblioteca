@@ -24,6 +24,8 @@ class App extends Component {
         return <About />;
       case "contacts":
         return <Contacts />;
+      case "blog":
+        return <h2>Insert a Blog link!</h2>;
       default:
         return <Main />;
     }
