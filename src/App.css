@@ -4,7 +4,7 @@
   cursor: pointer;
 }
 
-/* Tables */
+/* Table */
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
@@ -20,6 +20,11 @@ th {
 
 tr:nth-child(even) {
   background-color: #dddddd;
+}
+
+/* Pagination */
+.pagination-link {
+  padding: 10px 13px;
 }
 
 /* Footer */

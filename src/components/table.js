@@ -1,6 +1,9 @@
 import React from "react";
 
-const Table = props => {
+const Table = ({ books, page, step }) => {
+  const bookArrayStart = (page - 1) * step;
+  const bookArrayEnd = page * step - 1;
+
   return (
     <div className="mt3">
       <table>
@@ -15,7 +18,7 @@ const Table = props => {
           </tr>
         </thead>
         <tbody>
-          {props.books.slice(0, 3).map(book => (
+          {books.slice(bookArrayStart, bookArrayEnd).map(book => (
             <tr key={book.id}>
               <td>{book.codeid}</td>
               <td>{book.title}</td>

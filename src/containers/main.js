@@ -10,12 +10,18 @@ class Main extends Component {
       books: [],
       filteredBooks: [],
       filterInput: "",
-      selectedFilter: "title"
+      selectedFilter: "title",
+      selectedPage: 1,
+      listedBooksNumber: 25
     };
   }
 
   componentDidMount() {
     this.getBooks();
+  }
+
+  componentDidUpdate() {
+    this.checkPageConsistency();
   }
 
   getBooks = () => {
@@ -44,19 +50,42 @@ class Main extends Component {
     this.setState({ filteredBooks: filteredBooks });
   };
 
+  changePage = page => {
+    this.setState({ selectedPage: page });
+  };
+
+  checkPageConsistency = () => {
+    const totalPages =
+      Math.floor(
+        this.state.filteredBooks.length / this.state.listedBooksNumber
+      ) + 1;
+    if (this.state.selectedPage > totalPages) {
+      this.changePage(totalPages);
+    }
+  };
+
   onChange = e => {
     this.filterBooks(e.target.value);
   };
 
   render() {
+    const { filteredBooks, selectedPage, listedBooksNumber } = this.state;
     return (
       <div className="ph4 pb4">
         <Filter
           changeFilterInput={this.onChange}
           changeSelectInput={this.onSelectChange}
         />
-        <Table books={this.state.filteredBooks} />
-        <Pagination />
+        <Table
+          books={filteredBooks}
+          page={selectedPage}
+          step={listedBooksNumber}
+        />
+        <Pagination
+          page={selectedPage}
+          totalPages={Math.floor(filteredBooks.length / listedBooksNumber)}
+          changePage={this.changePage}
+        />
       </div>
     );
   }

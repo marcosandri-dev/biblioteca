@@ -1,13 +1,29 @@
 import React from "react";
 
-const Pagination = () => {
+const Pagination = ({ page, totalPages, changePage }) => {
   return (
-    <div class="center tc pa3 ma3">
-      <span class="link dim black ba pa3 mr1">{"<<"}</span>
-      <span class="link dim white bg-black ba pa3 mr1">1</span>
-      <span class="link dim black ba pa3 mr1">2</span>
-      <span class="link dim black ba pa3 mr1">3</span>
-      <span class="link dim black ba pa3 mr1">{">>"}</span>
+    <div className="center tc pa3 ma3">
+      {page === 1 ? (
+        ""
+      ) : (
+        <span
+          onClick={() => changePage(page - 1)}
+          className="pagination-link link dim black mr1"
+        >
+          {"<<"}
+        </span>
+      )}
+      {page}
+      {page <= totalPages ? (
+        <span
+          onClick={() => changePage(page + 1)}
+          className="pagination-link link dim black mr1"
+        >
+          {">>"}
+        </span>
+      ) : (
+        ""
+      )}
     </div>
   );
 };
