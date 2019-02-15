@@ -9,7 +9,7 @@ import Contacts from "./components/contacts";
 class App extends Component {
   constructor() {
     super();
-    this.state = { route: "main" };
+    this.state = { route: "main", isAdmin: false };
   }
 
   changeRoute = page => {
@@ -19,7 +19,7 @@ class App extends Component {
   renderRoute = route => {
     switch (route) {
       case "main":
-        return <Main />;
+        return <Main isAdmin={this.state.isAdmin} />;
       case "about":
         return <About />;
       case "contacts":
@@ -31,10 +31,20 @@ class App extends Component {
     }
   };
 
+  changeView = () => {
+    this.setState(prevState => ({
+      isAdmin: !prevState.isAdmin
+    }));
+  };
+
   render() {
     return (
       <div className="helvetica Site">
-        <Header changeRoute={this.changeRoute} />
+        <Header
+          changeView={this.changeView}
+          isAdmin={this.state.isAdmin}
+          changeRoute={this.changeRoute}
+        />
         <div className="Site-content">{this.renderRoute(this.state.route)}</div>
         <Footer />
       </div>

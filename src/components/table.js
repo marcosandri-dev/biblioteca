@@ -1,6 +1,6 @@
 import React from "react";
 
-const Table = ({ books, page, step }) => {
+const Table = ({ books, page, step, isAdmin, openAddBookForm }) => {
   const bookArrayStart = (page - 1) * step;
   const bookArrayEnd = page * step - 1;
 
@@ -18,6 +18,21 @@ const Table = ({ books, page, step }) => {
           </tr>
         </thead>
         <tbody>
+          {isAdmin ? (
+            <tr>
+              <td className="link dim blue underline" onClick={openAddBookForm}>
+                {" "}
+                Aggiungi{" "}
+              </td>
+              <td> / </td>
+              <td> / </td>
+              <td> / </td>
+              <td> / </td>
+              <td> / </td>
+            </tr>
+          ) : (
+            ""
+          )}
           {books.slice(bookArrayStart, bookArrayEnd).map(book => (
             <tr key={book.id}>
               <td>{book.codeid}</td>

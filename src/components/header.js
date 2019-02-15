@@ -2,8 +2,18 @@ import React from "react";
 
 const Header = props => {
   return (
-    <header className="bg-black-90 w-100 tr">
-      <nav className="f6 fw6 ttu tracked">
+    <header className="bg-black-90 w-100">
+      <nav className="f6 fw6 ttu tracked tr">
+        <span className="white">
+          Admin:{" "}
+          <input
+            className="dib ma3"
+            type="checkbox"
+            onChange={() => props.changeView()}
+            value=""
+          />
+        </span>
+
         <span
           className="link dim white dib pa3 bl"
           onClick={() => props.changeRoute("main")}

@@ -4,8 +4,8 @@ import Table from "../components/table";
 import Pagination from "../components/pagination";
 
 class Main extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       books: [],
       filteredBooks: [],
@@ -29,6 +29,10 @@ class Main extends Component {
       .then(response => response.json())
       .then(json => this.setState({ books: json, filteredBooks: json }));
   };
+
+  /*openAddBookForm = () => {
+
+  };*/
 
   onSelectChange = e => {
     this.setState({ selectedFilter: e.target.value });
@@ -77,9 +81,11 @@ class Main extends Component {
           changeSelectInput={this.onSelectChange}
         />
         <Table
+          isAdmin={this.props.isAdmin}
           books={filteredBooks}
           page={selectedPage}
           step={listedBooksNumber}
+          //openAddBookForm={openAddBookForm}
         />
         <Pagination
           page={selectedPage}
