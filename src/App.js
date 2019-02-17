@@ -9,7 +9,7 @@ import Contacts from "./components/contacts";
 class App extends Component {
   constructor() {
     super();
-    this.state = { route: "main", isAdmin: false };
+    this.state = { route: "main", isAdmin: true };
   }
 
   changeRoute = page => {

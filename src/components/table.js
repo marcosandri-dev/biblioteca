@@ -1,8 +1,32 @@
 import React from "react";
+import TableRow from "../containers/table-row";
 
-const Table = ({ books, page, step, isAdmin, openAddBookForm }) => {
+const Table = ({ books, page, step, isAdmin }) => {
   const bookArrayStart = (page - 1) * step;
   const bookArrayEnd = page * step - 1;
+
+  const renderBlankRowIfAdmin = () => {
+    if (isAdmin) {
+      return (
+        <TableRow
+          book={{
+            id: 0,
+            codeid: "Aggiungi",
+            title: "/",
+            author_surname: "/",
+            editor: "/",
+            genre: "/",
+            year: "/"
+          }}
+          isAdmin={isAdmin}
+        />
+      );
+    }
+  };
+
+  const renderRow = book => {
+    return <TableRow book={book} isAdmin={isAdmin} />;
+  };
 
   return (
     <div className="mt3">
@@ -18,33 +42,10 @@ const Table = ({ books, page, step, isAdmin, openAddBookForm }) => {
           </tr>
         </thead>
         <tbody>
-          {isAdmin ? (
-            <tr>
-              <td className="link dim blue underline" onClick={openAddBookForm}>
-                {" "}
-                Aggiungi{" "}
-              </td>
-              <td> / </td>
-              <td> / </td>
-              <td> / </td>
-              <td> / </td>
-              <td> / </td>
-            </tr>
-          ) : (
-            ""
-          )}
-          {books.slice(bookArrayStart, bookArrayEnd).map(book => (
-            <tr key={book.id}>
-              <td>{book.codeid}</td>
-              <td>{book.title}</td>
-              <td>
-                {book.author_surname} {book.author_name ? book.author_name : ""}
-              </td>
-              <td>{book.editor}</td>
-              <td>{book.genre}</td>
-              <td>{book.year}</td>
-            </tr>
-          ))}
+          {renderBlankRowIfAdmin()}
+          {books
+            .slice(bookArrayStart, bookArrayEnd)
+            .map(book => renderRow(book))}
         </tbody>
       </table>
     </div>
