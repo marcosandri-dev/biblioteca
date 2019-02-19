@@ -29,7 +29,7 @@ const Table = ({ books, page, step, isAdmin }) => {
   };
 
   return (
-    <div className="mt3">
+    <div>
       <table>
         <thead>
           <tr>

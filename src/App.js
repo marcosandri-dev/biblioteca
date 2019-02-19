@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Main from "./containers/main";
-import "./App.css";
+import "./App.scss";
 import Header from "./components/header";
 import Footer from "./components/footer";
 import About from "./components/about";
@@ -39,7 +39,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="helvetica Site">
+      <div className="Site">
         <Header
           changeView={this.changeView}
           isAdmin={this.state.isAdmin}

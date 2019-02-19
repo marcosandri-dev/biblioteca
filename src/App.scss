@@ -4,6 +4,19 @@
   cursor: pointer;
 }
 
+.pointer {
+  cursor: pointer;
+}
+
+.nav-item {
+  border-left: 1px solid #eee;
+  padding: 12px;
+  cursor: pointer;
+  &:hover {
+    background-color: #555;
+  }
+}
+
 /* Table */
 table {
   font-family: arial, sans-serif;
@@ -38,3 +51,8 @@ tr:nth-child(even) {
 .Site-content {
   flex: 1;
 }
+
+// Override default variables before the import
+
+// Import Bootstrap and its default variables
+@import "~bootstrap/scss/bootstrap.scss";

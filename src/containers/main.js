@@ -75,7 +75,7 @@ class Main extends Component {
   render() {
     const { filteredBooks, selectedPage, listedBooksNumber } = this.state;
     return (
-      <div className="ph4 pb4">
+      <div className="container">
         <Filter
           changeFilterInput={this.onChange}
           changeSelectInput={this.onSelectChange}
@@ -85,7 +85,6 @@ class Main extends Component {
           books={filteredBooks}
           page={selectedPage}
           step={listedBooksNumber}
-          //openAddBookForm={openAddBookForm}
         />
         <Pagination
           page={selectedPage}

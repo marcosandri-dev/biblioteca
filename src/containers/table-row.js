@@ -10,8 +10,8 @@ class TableRow extends Component {
   renderIDCode = codeid => {
     if (this.props.isAdmin)
       return (
-        <td className="link dim blue underline" onClick={this.toogleContent}>
-          {codeid}
+        <td className="text-primary pointer" onClick={this.toogleContent}>
+          <u>{codeid}</u>
         </td>
       );
     else return <td>{codeid}</td>;
